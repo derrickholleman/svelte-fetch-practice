@@ -17,14 +17,8 @@
 
 <div>
   {#if movies}
-    {#await movies}
-      <p>Loading...</p>
-    {:then moviesRes}
-      {#each moviesRes.slice(0, 5) as movie (movie.id)}
-        <Movie {movie} />
-      {/each}
-    {:catch error}
-      <p>{error.message}</p>
-    {/await}
+    {#each movies.slice(0, 5) as movie (movie.id)}
+      <Movie {movie} />
+    {/each}
   {/if}
 </div>
